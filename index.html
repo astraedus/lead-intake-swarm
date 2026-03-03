@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lead Intake Swarm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-grid"></div>
+  <main class="app">
+    <section class="hero">
+      <div class="copy">
+        <p class="eyebrow">Lead Intake Swarm</p>
+        <h1>Score inbound demand before your competitors even reply.</h1>
+        <p class="lede">A visual AI lead-ops concept for teams that want hot-lead routing, cleaner triage, and faster sales response on every inbound request.</p>
+        <div class="hero-metrics">
+          <div>
+            <span>Response time</span>
+            <strong>48 sec</strong>
+          </div>
+          <div>
+            <span>Hot leads flagged</span>
+            <strong>67%</strong>
+          </div>
+          <div>
+            <span>Pipeline value</span>
+            <strong>$38.5k</strong>
+          </div>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="pulse-card">
+          <span>Swarm status</span>
+          <strong>3 agents active</strong>
+          <p>Intake, Signal, and Closer are continuously ranking opportunities by urgency and commercial fit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <div class="panel leads">
+        <div class="panel-head">
+          <h2>Inbound Queue</h2>
+          <span>Live scoring</span>
+        </div>
+        <div id="lead-list" class="stack"></div>
+      </div>
+
+      <div class="panel summary">
+        <div class="panel-head">
+          <h2>Deal Heatmap</h2>
+          <span>Revenue-weighted</span>
+        </div>
+        <div id="bars" class="bars"></div>
+      </div>
+
+      <div class="panel actions">
+        <div class="panel-head">
+          <h2>Next Best Actions</h2>
+          <span>Closer output</span>
+        </div>
+        <div id="action-list" class="stack"></div>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
+
