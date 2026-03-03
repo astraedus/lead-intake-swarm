@@ -209,6 +209,78 @@ h1 {
   padding: 22px;
 }
 
+.flagship-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.simulator .panel-head {
+  margin-bottom: 18px;
+}
+
+.sim-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.sim-control {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(84, 240, 190, 0.05);
+  border: 1px solid rgba(84, 240, 190, 0.08);
+}
+
+.sim-control span,
+.sim-card span,
+.flagship-note span {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.sim-control input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.sim-control strong,
+.sim-card strong {
+  font-size: 1.25rem;
+}
+
+.sim-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.sim-card,
+.flagship-note {
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(84, 240, 190, 0.08);
+  background: rgba(84, 240, 190, 0.04);
+}
+
+.flagship-note strong {
+  display: block;
+  margin: 10px 0;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.35;
+}
+
+.flagship-note p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .radar {
   display: grid;
   place-items: center;
@@ -458,6 +530,7 @@ h1 {
   .hero,
   .dashboard,
   .command-strip,
+  .flagship-grid,
   .story-strip,
   .sequence-rail {
     grid-template-columns: 1fr;
@@ -468,6 +541,11 @@ h1 {
   }
 
   .pulse-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sim-controls,
+  .sim-results {
     grid-template-columns: 1fr;
   }
 }

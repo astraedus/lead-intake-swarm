@@ -97,6 +97,50 @@
       </div>
     </section>
 
+    <section class="flagship-grid">
+      <div class="command-card simulator">
+        <div class="panel-head">
+          <h2>Revenue Protection Simulator</h2>
+          <span>Flagship layer</span>
+        </div>
+        <div class="sim-controls">
+          <label class="sim-control">
+            <span>Average job value</span>
+            <input id="avg-ticket" type="range" min="250" max="2500" step="50" value="900">
+            <strong id="avg-ticket-value">$900</strong>
+          </label>
+          <label class="sim-control">
+            <span>Jobs scheduled tomorrow</span>
+            <input id="jobs-day" type="range" min="4" max="40" step="1" value="14">
+            <strong id="jobs-day-value">14</strong>
+          </label>
+        </div>
+        <div class="sim-results">
+          <div class="sim-card">
+            <span>Focus market</span>
+            <strong id="sim-city">--</strong>
+          </div>
+          <div class="sim-card">
+            <span>Revenue exposed</span>
+            <strong id="sim-risk">$0</strong>
+          </div>
+          <div class="sim-card">
+            <span>Jobs to re-route</span>
+            <strong id="sim-shift">0</strong>
+          </div>
+          <div class="sim-card">
+            <span>Potential savings</span>
+            <strong id="sim-save">$0</strong>
+          </div>
+        </div>
+      </div>
+      <div class="command-card flagship-note">
+        <span>Why this is a flagship</span>
+        <strong>It combines live external data, operational scoring, and an explicit money consequence in one page.</strong>
+        <p>That makes it much easier to pitch as the front-end of a real workflow: forecast pull, dispatch rules, customer notifications, and CRM updates triggered automatically.</p>
+      </div>
+    </section>
+
     <section class="story-strip">
       <div class="story-card">
         <span>Why this sells</span>

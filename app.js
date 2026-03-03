@@ -24,6 +24,9 @@ const barList = document.getElementById("bars");
 const actionList = document.getElementById("action-list");
 const signalTape = document.getElementById("signal-tape");
 const sequenceRail = document.getElementById("sequence-rail");
+const avgTicketInput = document.getElementById("avg-ticket");
+const jobsDayInput = document.getElementById("jobs-day");
+let latestRows = [];
 
 [
   "live forecast scoring",
@@ -154,6 +157,34 @@ function renderBoard(rows) {
   });
 }
 
+function formatMoney(value) {
+  return new Intl.NumberFormat(undefined, {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0
+  }).format(value);
+}
+
+function updateSimulator() {
+  if (!latestRows.length) {
+    return;
+  }
+
+  const focus = latestRows[0];
+  const avgTicket = Number(avgTicketInput.value);
+  const jobs = Number(jobsDayInput.value);
+  const exposure = avgTicket * jobs * (focus.score / 100) * 0.35;
+  const jobsToShift = Math.max(Math.round(jobs * (focus.score / 100) * 0.45), 1);
+  const savings = jobsToShift * avgTicket * 0.18;
+
+  document.getElementById("avg-ticket-value").textContent = formatMoney(avgTicket);
+  document.getElementById("jobs-day-value").textContent = String(jobs);
+  document.getElementById("sim-city").textContent = focus.name;
+  document.getElementById("sim-risk").textContent = formatMoney(exposure);
+  document.getElementById("sim-shift").textContent = String(jobsToShift);
+  document.getElementById("sim-save").textContent = formatMoney(savings);
+}
+
 async function loadTerritory(territory) {
   const response = await fetch(forecastUrl(territory));
   if (!response.ok) {
@@ -179,6 +210,7 @@ async function main() {
   try {
     const rows = await Promise.all(territories.map(loadTerritory));
     rows.sort((a, b) => b.score - a.score);
+    latestRows = rows;
 
     const highest = rows[0];
     const lowest = rows[rows.length - 1];
@@ -191,6 +223,7 @@ async function main() {
 
     renderSequence(highest, lowest);
     renderBoard(rows);
+    updateSimulator();
   } catch (error) {
     document.getElementById("hero-status").textContent = "Live data unavailable";
     document.getElementById("hero-summary").textContent = error.message;
@@ -203,5 +236,8 @@ async function main() {
     `;
   }
 }
+
+avgTicketInput.addEventListener("input", updateSimulator);
+jobsDayInput.addEventListener("input", updateSimulator);
 
 main();

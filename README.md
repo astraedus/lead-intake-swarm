@@ -31,6 +31,16 @@ For HVAC, roofing, home services, and any crew-based team, weather changes sched
 - `assets/social-preview.svg`: thumbnail art for repo links and posts
 - `assets/site-shot.png`: screenshot-ready preview image
 
+## Flagship Layer
+
+The site now includes a revenue protection simulator:
+
+- set average job value
+- set tomorrow's scheduled jobs
+- see a simple estimate of revenue exposure, jobs to re-route, and potential savings
+
+That gives the page an explicit money consequence instead of stopping at “interesting data.”
+
 ## Suggested Post Hook
 
 > Built a live dispatch board that uses tomorrow's forecast to decide where a field-service team should book work first.
