@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lead Intake Swarm</title>
+  <title>Lead Intake Swarm | Live Field Ops Routing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,53 +15,83 @@
     <section class="hero">
       <div class="copy">
         <p class="eyebrow">Lead Intake Swarm</p>
-        <h1>Score inbound demand before your competitors even reply.</h1>
-        <p class="lede">A visual AI lead-ops concept for teams that want hot-lead routing, cleaner triage, and faster sales response on every inbound request.</p>
+        <h1>Use live weather pressure to decide where field teams should move first.</h1>
+        <p class="lede">This is a real business-ops story, not a fake dashboard. The page pulls live forecast data and turns it into a simple routing board for field-service teams handling weather-sensitive jobs.</p>
+        <div class="signal-tape" id="signal-tape"></div>
         <div class="hero-metrics">
           <div>
-            <span>Response time</span>
-            <strong>48 sec</strong>
+            <span>Data source</span>
+            <strong>Open-Meteo</strong>
           </div>
           <div>
-            <span>Hot leads flagged</span>
-            <strong>67%</strong>
+            <span>Decision horizon</span>
+            <strong>72 hours</strong>
           </div>
           <div>
-            <span>Pipeline value</span>
-            <strong>$38.5k</strong>
+            <span>Buyer type</span>
+            <strong>Field ops</strong>
           </div>
         </div>
       </div>
       <div class="hero-panel">
         <div class="pulse-card">
-          <span>Swarm status</span>
-          <strong>3 agents active</strong>
-          <p>Intake, Signal, and Closer are continuously ranking opportunities by urgency and commercial fit.</p>
+          <span>Live status</span>
+          <strong id="hero-status">Fetching forecast...</strong>
+          <p id="hero-summary">Scoring three service-heavy metros by rain, wind, and temperature pressure.</p>
+          <div class="pulse-grid">
+            <div class="pulse-node">
+              <span>Territories</span>
+              <strong>3</strong>
+            </div>
+            <div class="pulse-node">
+              <span>Highest risk</span>
+              <strong id="hero-risk-city">--</strong>
+            </div>
+            <div class="pulse-node">
+              <span>Best booking zone</span>
+              <strong id="hero-clear-city">--</strong>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="command-strip">
+      <div class="command-card radar">
+        <div class="ring">
+          <div class="ring-inner">
+            <span>Risk Index</span>
+            <strong id="hero-risk-index">--</strong>
+          </div>
+        </div>
+      </div>
+      <div class="command-card sequence">
+        <h2>Dispatch Logic</h2>
+        <div class="sequence-rail" id="sequence-rail"></div>
       </div>
     </section>
 
     <section class="dashboard">
       <div class="panel leads">
         <div class="panel-head">
-          <h2>Inbound Queue</h2>
-          <span>Live scoring</span>
+          <h2>Territory Board</h2>
+          <span>Live operational score</span>
         </div>
         <div id="lead-list" class="stack"></div>
       </div>
 
       <div class="panel summary">
         <div class="panel-head">
-          <h2>Deal Heatmap</h2>
-          <span>Revenue-weighted</span>
+          <h2>Weather Friction</h2>
+          <span>Tomorrow forecast</span>
         </div>
         <div id="bars" class="bars"></div>
       </div>
 
       <div class="panel actions">
         <div class="panel-head">
-          <h2>Next Best Actions</h2>
-          <span>Closer output</span>
+          <h2>Dispatch Plays</h2>
+          <span>Human next action</span>
         </div>
         <div id="action-list" class="stack"></div>
       </div>
@@ -70,4 +100,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-

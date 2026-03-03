@@ -1,22 +1,22 @@
 # Lead Intake Swarm
 
-A static, visual microsite for AI-assisted inbound lead scoring.
+A live business-ops microsite that fetches weather data and turns it into a routing decision for field-service companies.
 
-## Concept
+## Why A Business Would Care
 
-This project frames lead qualification as a three-agent system:
+For HVAC, roofing, home services, and any crew-based team, weather changes schedule risk, truck efficiency, overtime, and customer expectations. This page answers a real question: where should we safely book work first?
 
-- Intake Agent
-- Signal Agent
-- Closer Agent
+## Live Data
 
-Instead of a CLI, it is now a polished dashboard-style webpage built for screenshots, portfolio browsing, and GitHub Pages hosting.
+- API: Open-Meteo
+- Client-side browser fetch
+- No API key required
 
-## What It Shows
+## What It Does
 
-- a ranked inbound queue
-- a value-weighted deal heatmap
-- recommended next-best actions
+- scores three service territories using tomorrow's forecast
+- ranks weather friction
+- translates the score into a plain-language dispatch play
 
 ## Open
 
