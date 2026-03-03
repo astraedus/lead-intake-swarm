@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lead Intake Swarm | Live Field Ops Routing</title>
+  <title>Lead Intake Swarm | Weather Ops Command Center</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,125 +12,173 @@
 <body>
   <div class="page-grid"></div>
   <main class="app">
-    <section class="hero">
-      <div class="copy">
+    <header class="masthead">
+      <div>
         <p class="eyebrow">Lead Intake Swarm</p>
-        <h1>Use live weather pressure to decide where field teams should move first.</h1>
-        <p class="lede">This is a real business-ops story, not a fake dashboard. The page pulls live forecast data and turns it into a simple routing board for field-service teams handling weather-sensitive jobs.</p>
+        <strong>Weather Ops Command Center</strong>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span id="live-stamp">Loading live feed...</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="copy panel-shell">
+        <p class="eyebrow">Dispatch revenue before it slips</p>
+        <h1>Turn tomorrow's forecast into crew movement, protected margin, and clearer promises.</h1>
+        <p class="lede">This page pulls live weather data, scores service territories, estimates schedule drag, and surfaces the accounts most likely to need intervention. It is built like a compact operations product, not a static mockup.</p>
         <div class="signal-tape" id="signal-tape"></div>
-        <div class="hero-metrics">
-          <div>
-            <span>Data source</span>
-            <strong>Open-Meteo</strong>
+        <div class="hero-summary-row">
+          <div class="hero-chip">
+            <span>Highest risk</span>
+            <strong id="executive-risk">--</strong>
           </div>
-          <div>
-            <span>Decision horizon</span>
-            <strong>72 hours</strong>
+          <div class="hero-chip">
+            <span>Safest booking zone</span>
+            <strong id="executive-safe">--</strong>
           </div>
-          <div>
-            <span>Buyer type</span>
-            <strong>Field ops</strong>
+          <div class="hero-chip">
+            <span>Crews to rebalance</span>
+            <strong id="executive-shift">--</strong>
           </div>
         </div>
       </div>
-      <div class="hero-panel">
-        <div class="pulse-card">
-          <span>Live status</span>
-          <strong id="hero-status">Fetching forecast...</strong>
-          <p id="hero-summary">Scoring three service-heavy metros by rain, wind, and temperature pressure.</p>
-          <div class="pulse-grid">
-            <div class="pulse-node">
-              <span>Territories</span>
-              <strong>3</strong>
-            </div>
-            <div class="pulse-node">
-              <span>Highest risk</span>
-              <strong id="hero-risk-city">--</strong>
-            </div>
-            <div class="pulse-node">
-              <span>Best booking zone</span>
-              <strong id="hero-clear-city">--</strong>
-            </div>
+
+      <div class="snapshot panel-shell">
+        <div class="snapshot-head">
+          <span class="eyebrow">Executive snapshot</span>
+          <strong id="hero-status">Building live dispatch brief...</strong>
+        </div>
+        <p id="hero-summary">Comparing active territories against a rolling three-day forecast.</p>
+        <div class="snapshot-grid">
+          <div class="snapshot-card">
+            <span>Revenue at risk</span>
+            <strong id="revenue-risk">$0</strong>
+          </div>
+          <div class="snapshot-card">
+            <span>Same-day safe zone</span>
+            <strong id="safe-zone">--</strong>
+          </div>
+          <div class="snapshot-card">
+            <span>Jobs to rebalance</span>
+            <strong id="crew-shift">0</strong>
+          </div>
+          <div class="snapshot-card accent">
+            <span>Response mode</span>
+            <strong id="response-mode">--</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="command-strip">
-      <div class="command-card radar">
-        <div class="ring">
-          <div class="ring-inner">
-            <span>Risk Index</span>
-            <strong id="hero-risk-index">--</strong>
+    <section class="metric-band" id="metric-band"></section>
+
+    <section class="workspace">
+      <article class="panel territory-panel">
+        <div class="panel-head">
+          <div>
+            <span class="eyebrow">Territory board</span>
+            <h2>Service pressure by market</h2>
           </div>
+          <strong>Next 72 hours</strong>
         </div>
-      </div>
-      <div class="command-card sequence">
-        <h2>Dispatch Logic</h2>
-        <div class="sequence-rail" id="sequence-rail"></div>
-      </div>
+        <div id="territory-grid" class="territory-grid"></div>
+      </article>
+
+      <article class="panel priority-panel">
+        <div class="panel-head">
+          <div>
+            <span class="eyebrow">Priority queue</span>
+            <h2>Dispatch moves</h2>
+          </div>
+          <strong>Human-readable</strong>
+        </div>
+        <div id="priority-list" class="priority-list"></div>
+        <div class="dispatch-note">
+          <span class="eyebrow">Booking guidance</span>
+          <p id="dispatch-copy">Generating next-best actions for field managers.</p>
+        </div>
+      </article>
     </section>
 
-    <section class="dashboard">
-      <div class="panel leads">
+    <section class="intelligence-grid">
+      <article class="panel trend-panel">
         <div class="panel-head">
-          <h2>Territory Board</h2>
-          <span>Live operational score</span>
+          <div>
+            <span class="eyebrow">Trendline</span>
+            <h2>Three-day risk windows</h2>
+          </div>
+          <strong>Forecast stack</strong>
         </div>
-        <div id="lead-list" class="stack"></div>
-      </div>
+        <div id="trend-grid" class="trend-grid"></div>
+      </article>
 
-      <div class="panel summary">
+      <article class="panel account-panel">
         <div class="panel-head">
-          <h2>Weather Friction</h2>
-          <span>Tomorrow forecast</span>
+          <div>
+            <span class="eyebrow">Account watch</span>
+            <h2>Likely service exposure</h2>
+          </div>
+          <strong>Top at-risk stops</strong>
         </div>
-        <div id="bars" class="bars"></div>
-      </div>
+        <div id="account-list" class="account-list"></div>
+      </article>
 
-      <div class="panel actions">
+      <article class="panel automations-panel">
         <div class="panel-head">
-          <h2>Dispatch Plays</h2>
-          <span>Human next action</span>
+          <div>
+            <span class="eyebrow">Automation lane</span>
+            <h2>System moves</h2>
+          </div>
+          <strong>What to trigger</strong>
         </div>
-        <div id="action-list" class="stack"></div>
-      </div>
+        <div id="automation-list" class="automation-list"></div>
+      </article>
     </section>
 
-    <section class="flagship-grid">
-      <div class="command-card simulator">
-        <div class="panel-head">
-          <h2>Revenue Protection Simulator</h2>
-          <span>Flagship layer</span>
+    <section class="panel simulator-panel">
+      <div class="panel-head">
+        <div>
+          <span class="eyebrow">Scenario planner</span>
+          <h2>Revenue protection model</h2>
         </div>
+        <strong id="sim-focus">Waiting for live focus market</strong>
+      </div>
+      <div class="sim-layout">
         <div class="sim-controls">
           <label class="sim-control">
-            <span>Average job value</span>
-            <input id="avg-ticket" type="range" min="250" max="2500" step="50" value="900">
+            <span>Average ticket value</span>
+            <input id="avg-ticket" type="range" min="250" max="3000" step="50" value="900">
             <strong id="avg-ticket-value">$900</strong>
           </label>
           <label class="sim-control">
             <span>Jobs scheduled tomorrow</span>
-            <input id="jobs-day" type="range" min="4" max="40" step="1" value="14">
-            <strong id="jobs-day-value">14</strong>
+            <input id="jobs-day" type="range" min="4" max="60" step="1" value="18">
+            <strong id="jobs-day-value">18</strong>
+          </label>
+          <label class="sim-control">
+            <span>SLA risk tolerance</span>
+            <input id="sla-risk" type="range" min="10" max="90" step="5" value="45">
+            <strong id="sla-risk-value">45%</strong>
           </label>
         </div>
-        <div class="sim-results">
-          <div class="sim-card">
-            <span>Focus market</span>
-            <strong id="sim-city">--</strong>
-          </div>
+        <div class="sim-results" id="sim-results">
           <div class="sim-card">
             <span>Revenue exposed</span>
-            <strong id="sim-risk">$0</strong>
+            <strong id="sim-exposure">$0</strong>
           </div>
           <div class="sim-card">
-            <span>Jobs to re-route</span>
+            <span>Jobs to reroute</span>
             <strong id="sim-shift">0</strong>
           </div>
           <div class="sim-card">
-            <span>Potential savings</span>
-            <strong id="sim-save">$0</strong>
+            <span>Margin recovered</span>
+            <strong id="sim-recover">$0</strong>
+          </div>
+          <div class="sim-card accent">
+            <span>Protected capacity</span>
+            <strong id="sim-margin">0%</strong>
           </div>
         </div>
       </div>

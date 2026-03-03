@@ -1,49 +1,43 @@
 # Lead Intake Swarm
 
-A live business-ops microsite that fetches weather data and turns it into a routing decision for field-service companies.
+Lead Intake Swarm is a static field-operations microsite that turns live weather data into a dispatch brief for service businesses.
 
-## Positioning
+Instead of showing generic dashboard filler, it answers practical questions:
 
-This is built to look like a wedge product for field-service operators:
+- which territory is most likely to slip tomorrow
+- where same-day work can be booked safely
+- how many crews should be rebalanced
+- how much revenue is exposed if the board is left unchanged
 
-- useful in one glance
-- tied to real scheduling pain
-- easy to extend into notifications, dispatch logic, and CRM automations
+## What It Does
 
-## Why A Business Would Care
+- pulls forecast data from Open-Meteo in the browser
+- scores four service territories across a rolling three-day window
+- ranks dispatch priority and shows human-readable next actions
+- surfaces at-risk accounts and automation triggers
+- models revenue exposure with an interactive scenario planner
 
-For HVAC, roofing, home services, and any crew-based team, weather changes schedule risk, truck efficiency, overtime, and customer expectations. This page answers a real question: where should we safely book work first?
+## Product Shape
+
+The page is designed to feel like the front end of a real workflow:
+
+- dispatch review at the start of day
+- automated customer notification triggers
+- CRM / SLA logging after route changes
+- capacity rebalancing across markets
+
+It also includes a built-in fallback model so the page still renders usable output if a live forecast call fails.
 
 ## Live Data
 
 - API: Open-Meteo
-- Client-side browser fetch
-- No API key required
-
-## What It Does
-
-- scores three service territories using tomorrow's forecast
-- ranks weather friction
-- translates the score into a plain-language dispatch play
+- Auth: none required
+- Deployment fit: GitHub Pages friendly
 
 ## Repo Assets
 
-- `assets/social-preview.svg`: thumbnail art for repo links and posts
-- `assets/site-shot.png`: screenshot-ready preview image
-
-## Flagship Layer
-
-The site now includes a revenue protection simulator:
-
-- set average job value
-- set tomorrow's scheduled jobs
-- see a simple estimate of revenue exposure, jobs to re-route, and potential savings
-
-That gives the page an explicit money consequence instead of stopping at “interesting data.”
-
-## Suggested Post Hook
-
-> Built a live dispatch board that uses tomorrow's forecast to decide where a field-service team should book work first.
+- `assets/social-preview.svg`: lightweight social/thumbnail art
+- `assets/site-shot.png`: screenshot asset for GitHub/social previews
 
 ## Open
 
