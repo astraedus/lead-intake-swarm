@@ -1,0 +1,28 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#07141F"/>
+  <circle cx="1030" cy="118" r="210" fill="url(#a)" fill-opacity="0.42"/>
+  <circle cx="170" cy="560" r="250" fill="url(#b)" fill-opacity="0.26"/>
+  <rect x="70" y="68" width="1060" height="494" rx="28" fill="#102534" stroke="#20485D"/>
+  <text x="100" y="138" fill="#54F0BE" font-family="IBM Plex Mono, monospace" font-size="28" letter-spacing="4">LEAD INTAKE SWARM</text>
+  <text x="100" y="235" fill="#EBFFF8" font-family="Arial, sans-serif" font-size="68" font-weight="700">Live Field Ops Routing</text>
+  <text x="100" y="302" fill="#9ECBC0" font-family="Arial, sans-serif" font-size="34">Use live weather pressure to decide where crews should move first.</text>
+  <rect x="100" y="360" width="300" height="110" rx="20" fill="#143647"/>
+  <text x="126" y="405" fill="#9ECBC0" font-family="Arial, sans-serif" font-size="24">Highest risk</text>
+  <text x="126" y="448" fill="#EBFFF8" font-family="Arial, sans-serif" font-size="36" font-weight="700">Dallas</text>
+  <rect x="430" y="360" width="300" height="110" rx="20" fill="#143647"/>
+  <text x="456" y="405" fill="#9ECBC0" font-family="Arial, sans-serif" font-size="24">Forecast horizon</text>
+  <text x="456" y="448" fill="#EBFFF8" font-family="Arial, sans-serif" font-size="36" font-weight="700">72 Hours</text>
+  <rect x="760" y="360" width="270" height="110" rx="20" fill="#143647"/>
+  <text x="786" y="405" fill="#9ECBC0" font-family="Arial, sans-serif" font-size="24">Use case</text>
+  <text x="786" y="448" fill="#EBFFF8" font-family="Arial, sans-serif" font-size="36" font-weight="700">Dispatch</text>
+  <defs>
+    <radialGradient id="a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1030 118) rotate(90) scale(210)">
+      <stop stop-color="#54F0BE"/>
+      <stop offset="1" stop-color="#54F0BE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(170 560) rotate(90) scale(250)">
+      <stop stop-color="#FFD36C"/>
+      <stop offset="1" stop-color="#FFD36C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
